@@ -34,18 +34,28 @@
       cursor: pointer;
       color: #884300;
     }
+    input.sml {
+      width: 100px;
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
   <img src="https://npmcdn.com/namor/assets/namor.png" class="logo">
 
   <input type="text" id="generatedName" disabled>
+  Word Count: <input type="number" id="wordCount" value="2" class="sml">
+  Number Length: <input type="number" id="numberLength" value="4" class="sml"><br>
   <button onClick="generate()">Generate</button>
 
   <script src="https://npmcdn.com/namor/build/namor.min.js"></script>
   <script>
     function generate() {
-      var name = Namor.generate()
+      var wordCount = document.getElementById('wordCount').value
+      var numberLength = document.getElementById('numberLength').value
+
+      var name = Namor.generate(wordCount, numberLength)
+
       document.getElementById('generatedName').value = name
     }
 
