@@ -1,7 +1,7 @@
 {
   "name": "namor",
   "version": "0.1.2",
-  "description": "a manly name generator for javascript",
+  "description": "a manly, url-friendly name generator",
   "keywords": [
     "manly",
     "man",
