@@ -19,8 +19,11 @@
     "url": "git+https://github.com/jsonmaur/namor.git"
   },
   "files": [
+    "assets/",
     "lib/",
-    "README.md"
+    "data.json",
+    "README.md",
+    "LICENSE"
   ],
   "main": "lib/index.js",
   "scripts": {
