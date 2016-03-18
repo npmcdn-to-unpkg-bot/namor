@@ -26,6 +26,12 @@ var generatedName = namor.generate()
 var generatedName = namor.generate(3, 0)
 ```
 
+If you prefer UMD, you can also link directly to the build using [npmcdn](https://npmcdn.com).
+
+```html
+<script src="https://npmcdn.com/namor/build/namor.min.js"></script>
+```
+
 #### Some Examples
 
 ```
