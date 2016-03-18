@@ -6,6 +6,9 @@ import data from './data'
  * @param {int} trailingNumLen - The length of the appended number
  */
 export default function (wordCount = 2, trailingNumLen = 4) {
+  wordCount = parseInt(wordCount, 10)
+  trailingNumLen = parseInt(trailingNumLen, 10)
+
   if (wordCount < 1) {
     throw new Error('word count must be above 0')
   } else if (wordCount > 4) {
