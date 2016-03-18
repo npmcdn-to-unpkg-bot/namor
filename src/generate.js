@@ -1,4 +1,4 @@
-import data from '../data.json'
+import data from './data'
 
 /**
  * generate a random name
