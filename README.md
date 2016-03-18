@@ -6,9 +6,9 @@
 [![Build Status](https://travis-ci.org/jsonmaur/namor.svg?branch=master)](https://travis-ci.org/jsonmaur/namor)
 [![Coverage Status](https://coveralls.io/repos/github/jsonmaur/namor/badge.svg?branch=master)](https://coveralls.io/github/jsonmaur/namor?branch=master)
 
-A manly name generator for Javascript. Generates random url-friendly names  of a rugged nature. Works in Node.js and web browsers.
+A manly name generator for Javascript. Generates random url-friendly names of a rugged nature. This comes in handy if you need to generate unique subdomains (like Heroku does), or unique names for anything else. Works in Node.js and web browsers.
 
-> *Please Note: Generated names are not guaranteed to be unique. To reduce the chances of collision, you can increase the length of the trailing number (see below). Always make sure you check your database before assuming a generated value is unique.*
+> *Please Note: Generated names are not guaranteed to always be unique. To reduce the chances of collision, you can increase the length of the trailing number (see below). Always make sure you check your database before assuming a generated value is unique.*
 
 ## Getting Started
 
