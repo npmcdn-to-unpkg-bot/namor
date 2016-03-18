@@ -40,30 +40,11 @@ export default function (wordCount = 2, trailingNumLen = 4) {
     name += randomFromArray(data[`${splitPattern[i]}s`]) + '-'
   }
 
-  let minNum = '1'
-  let maxNum = '9'
-  for (let i = 0; i < trailingNumLen - 1; i++) {
-    minNum = `${minNum}1`
-    maxNum = `${maxNum}9`
-  }
-
-  name += trailingNumLen ? Math.floor(
-    (Math.random() * parseInt(maxNum, 10)) + parseInt(minNum, 10)
-  ) : ''
-
-  if (name.slice(-1) === '-') {
-    name = name.slice(0, -1)
-  }
+  name += trailingNumLen ? randomNumber(trailingNumLen) : ''
+  /* remove trailing dash */
+  if (name.slice(-1) === '-') name = name.slice(0, -1)
 
   return name
-}
-
-/**
- * generates a random boolean value
- * @returns {boolean}
- */
-export function randomBoolean() {
-  return Boolean(String(Math.random()).substring(2) % 2)
 }
 
 /**
@@ -73,4 +54,30 @@ export function randomBoolean() {
  */
 export function randomFromArray(arr) {
   return arr[Math.floor(Math.random() * arr.length)]
+}
+
+/**
+ * generates a random number and returns as string to prevent limits
+ * @param {int} size - The number of digits to return
+ * @returns {string} The generated random number (in string format)
+ */
+export function randomNumber(size) {
+  if (!size || size <= 0) {
+    throw new Error('random number size must be above 0!')
+  }
+
+  let number = ''
+  for (let i = 0; i < size; i++) {
+    let rand
+    if (i === 0) {
+      /* prevents the first number from being 0 */
+      rand = Math.floor((Math.random() * 9) + 1)
+    } else {
+      rand = Math.floor(Math.random() * 10)
+    }
+
+    number += String(rand)
+  }
+
+  return number
 }

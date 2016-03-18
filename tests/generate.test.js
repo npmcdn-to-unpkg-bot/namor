@@ -34,25 +34,14 @@ test('generate()', t => {
   t.is(typeof string7, 'string')
   t.ok(parseInt(string7.slice(-10), 10) > 999999999)
 
+  const string8 = generate.default(2, 2)
+  t.is(typeof string8, 'string')
+  t.ok(parseInt(string8.slice(-2), 10) > 9)
+
   t.throws(() => generate.default(5))
   t.throws(() => generate.default(0))
   t.throws(() => generate.default(-1))
   t.throws(() => generate.default(2, -1))
-})
-
-// -----------------------------------------------------------------------------
-// randomBoolean()
-// -----------------------------------------------------------------------------
-
-test('randomBoolean()', t => {
-  const results = []
-
-  for (let i = 0; i < 100; i++) {
-    results.push(generate.randomBoolean())
-  }
-
-  t.ok(results.indexOf(true) > -1)
-  t.ok(results.indexOf(false) > -1)
 })
 
 // -----------------------------------------------------------------------------
@@ -64,4 +53,27 @@ test('randomFromArray()', t => {
   const rand = generate.randomFromArray(arr)
 
   t.ok(arr.indexOf(rand) > -1)
+})
+
+// -----------------------------------------------------------------------------
+// randomNumber()
+// -----------------------------------------------------------------------------
+
+test('randomNumber()', t => {
+  function testLength(len) {
+    for (let i = 0; i < 100; i++) {
+      const num = generate.randomNumber(len)
+      t.is(String(num).length, len)
+    }
+  }
+
+  testLength(1)
+  testLength(5)
+  testLength(10)
+  testLength(25)
+  testLength(50)
+  testLength(100)
+
+  t.throws(() => generate.randomNumber(0))
+  t.throws(() => generate.randomNumber(-1))
 })
