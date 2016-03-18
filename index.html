@@ -1,0 +1,55 @@
+<html>
+<head>
+  <title>Namor - A manly, url-friendly name generator</title>
+  <style type="text/css">
+    body {
+      text-align: center;
+      padding: 50px;
+    }
+    .logo {
+      display: block;
+      margin: auto;
+      margin-bottom: 50px;
+    }
+    input {
+      padding: 10px 20px;
+      width: 400px;
+      font-size: 20px;
+      display: block;
+      margin: 10px auto;
+      outline: none;
+      border-radius: 4px;
+      border: 1px solid #884300;
+      color: #884300;
+      text-align: center;
+    }
+    button {
+      width: 400px;
+      padding: 10px 20px;
+      border: none;
+      background: #D99D04;
+      font-size: 20px;
+      outline: none;
+      border-radius: 4px;
+      cursor: pointer;
+      color: #884300;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://npmcdn.com/namor/assets/namor.png" class="logo">
+
+  <input type="text" id="generatedName" disabled>
+  <button onClick="generate()">Generate</button>
+
+  <script src="https://npmcdn.com/namor/build/namor.min.js"></script>
+  <script>
+    function generate() {
+      var name = Namor.generate()
+      document.getElementById('generatedName').value = name
+    }
+
+    generate()
+  </script>
+</body>
+</html>
