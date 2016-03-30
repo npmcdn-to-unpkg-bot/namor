@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+body {
+  text-align: center;
+  padding: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  background: #864100;
+  background: -moz-linear-gradient(top, #fcc507 0%, #864100 100%);
+  background: -webkit-linear-gradient(top, #fcc507 0%,#864100 100%);
+  background: linear-gradient(to bottom, #fcc507 0%,#864100 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcc507', endColorstr='#864100',GradientType=0 );
+}
+
+.logo {
+  display: block;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+input {
+  padding: 10px 20px;
+  width: 400px;
+  font-size: 20px;
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid #884300;
+  color: black;
+  font-family: 'Open Sans', sans-serif;
+}
+
+input.sml {
+  width: 70px;
+  display: inline-block;
+  text-align: right;
+}
+
+input.huge {
+  width: 700px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.inline-button {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 50px;
+}
+.inline-button button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  background: #fcc507;
+  color: #864100;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  font-weight: 700;
+}
+
+button {
+  opacity: 1;
+}
+button:hover {
+  opacity: 0.7;
+}
+
+.options {
+  width: 700px;
+  margin: auto;
+  position: relative;
+}
+
+.options td {
+  padding: 10px;
+  width: 50%;
+}
+.options td:first-child {
+  text-align: right;
+}
