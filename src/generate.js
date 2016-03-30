@@ -1,13 +1,21 @@
-import data from './data'
+import data from '../data.json'
+import { randomFromArray, randomNumber } from './random'
 
 /**
  * generate a random name
  * @param {int} wordCount - The number of words to include
  * @param {int} trailingNumLen - The length of the appended number
  */
-export default function (wordCount = 2, trailingNumLen = 4) {
-  wordCount = parseInt(wordCount, 10)
-  trailingNumLen = parseInt(trailingNumLen, 10)
+export default function (options = {}) {
+  if (!options.numLen && options.numLen !== 0) {
+    options.numLen = 4
+  }
+  const numberLength = parseInt(options.numLen, 10)
+
+  if (!options.words && options.words !== 0) {
+    options.words = 2
+  }
+  const wordCount = parseInt(options.words, 10)
 
   if (wordCount < 1) {
     throw new Error('word count must be above 0')
@@ -15,8 +23,8 @@ export default function (wordCount = 2, trailingNumLen = 4) {
     throw new Error('word count cannot be above 4')
   }
 
-  if (trailingNumLen < 0) {
-    throw new Error('number length must be above 0')
+  if (numberLength < 0) {
+    throw new Error('trailing number length must be above 0')
   }
 
   let pattern
@@ -40,47 +48,16 @@ export default function (wordCount = 2, trailingNumLen = 4) {
   const splitPattern = pattern.split('|')
 
   for (let i = 0; i < splitPattern.length; i++) {
-    name += randomFromArray(data[`${splitPattern[i]}s`]) + '-'
+    const wordsToChooseFrom = options.manly
+      ? data.manly[`${splitPattern[i]}s`]
+      : data[`${splitPattern[i]}s`]
+
+    name += randomFromArray(wordsToChooseFrom) + '-'
   }
 
-  name += trailingNumLen ? randomNumber(trailingNumLen) : ''
+  name += numberLength ? randomNumber(numberLength) : ''
   /* remove trailing dash */
   if (name.slice(-1) === '-') name = name.slice(0, -1)
 
   return name
-}
-
-/**
- * picks a random value from an array
- * @param {array} arr - The array to pick from
- * @returns {any} The value at the random key
- */
-export function randomFromArray(arr) {
-  return arr[Math.floor(Math.random() * arr.length)]
-}
-
-/**
- * generates a random number and returns as string to prevent limits
- * @param {int} size - The number of digits to return
- * @returns {string} The generated random number (in string format)
- */
-export function randomNumber(size) {
-  if (!size || size <= 0) {
-    throw new Error('random number size must be above 0!')
-  }
-
-  let number = ''
-  for (let i = 0; i < size; i++) {
-    let rand
-    if (i === 0) {
-      /* prevents the first number from being 0 */
-      rand = Math.floor((Math.random() * 9) + 1)
-    } else {
-      rand = Math.floor(Math.random() * 10)
-    }
-
-    number += String(rand)
-  }
-
-  return number
 }

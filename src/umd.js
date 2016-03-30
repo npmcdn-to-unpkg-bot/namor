@@ -1,4 +1,4 @@
-/* eslint no-unused-vars: 0 */
-/* global Namor */
-import namor from './'
-global.Namor = namor
+import generate from './generate'
+
+const Namor = { generate }
+global.Namor = Namor
