@@ -34,9 +34,9 @@
     "coveralls": "cat coverage/lcov.info | coveralls",
     "build-data": "rm -f data.json && ./node_modules/.bin/babel-node data/build",
     "build-browser": "rm -f namor.min.js && UMD=true browserify -g uglifyify -t babelify -t envify src/umd -o namor.min.js",
-    "build-node": "rm -rf lib && babel src -d lib -s --no-comments",
+    "build-node": "rm -rf lib && babel src -d lib --no-comments",
     "build": "npm run build-data && npm run build-browser && npm run build-node",
-    "watch": "npm run build -- -w",
+    "watch": "npm run build-node -- -w -s",
     "prepublish": "npm run build"
   },
   "devDependencies": {
