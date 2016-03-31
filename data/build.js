@@ -2,8 +2,11 @@ import fs from 'fs'
 import glob from 'glob'
 import path from 'path'
 
-const data = {}
+// -----------------------------------------------------------------------------
+// builds a JSON file from all of the .txt files in this dir
+// -----------------------------------------------------------------------------
 
+const data = {}
 const dataPath = path.resolve(__dirname, '../data')
 glob(`${dataPath}/**/*.txt`, (err, files) => {
   if (err) return console.log(err)
@@ -22,6 +25,13 @@ glob(`${dataPath}/**/*.txt`, (err, files) => {
   fs.writeFileSync(output, JSON.stringify(data))
 })
 
+/**
+ * assigns values to an object, creating keys in
+ * `keyPath` if they don't exist yet.
+ * @param {object} obj - The object to assign values to
+ * @param {array} keyPath - The path to assign in object [a,b] => obj.a.b
+ * @param {any} value - The value to assign to the object
+ */
 function assign(obj, keyPath, value) {
   const lastKeyIndex = keyPath.length - 1
 
@@ -33,26 +43,3 @@ function assign(obj, keyPath, value) {
 
   obj[keyPath[lastKeyIndex]] = value
 }
-
-//     return Promise.all([
-//       getWords(`${__dirname}/adjectives.txt`, 'adjectives'),
-//       getWords(`${__dirname}/nouns.txt`, 'nouns'),
-//       getWords(`${__dirname}/verbs.txt`, 'verbs'),
-//       getWords(`${__dirname}/manly/adjectives.txt`, 'manly.adjectives'),
-//       getWords(`${__dirname}/manly/nouns.txt`, 'manly.nouns'),
-//       getWords(`${__dirname}/manly/verbs.txt`, 'manly.verbs')
-//     ])
-//
-// export function getWords(file, keyPath) {
-//   return new Promise((resolve, reject) => {
-//     fs.readFile(file, 'utf8', (err, data) => {
-//       if (err) return reject(err)
-//
-//       keyPath = keyPath.split('.')
-//       data = data.trim().split('\n')
-//
-//       assign(WORDS, keyPath, data)
-//       resolve()
-//     })
-//   })
-// }
