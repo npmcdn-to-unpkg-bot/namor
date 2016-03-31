@@ -78,7 +78,7 @@ primal-attack-kick
 - `options`
   - `words` `[default: 2, min: 1, max: 4]` - The number of words to include in the generated name. Must be a positive integer no higher than 4.
   - `numLen` `[default: 4]` - The length of the random trailing number. Must be a positive integer. It can also be set to `0` to exclude a trailing number.
-  - `manly` `[default: false]` - If set to true, generated names will be of a rugged nature.
+  - `manly` `[default: false]` - If set to true, manly mode will be enabled which will generate names of a rugged nature.
 
 ## Testing and Contributing
 
