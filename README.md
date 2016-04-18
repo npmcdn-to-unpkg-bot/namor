@@ -90,7 +90,7 @@ primal-attack-kick
     > Type: `boolean`  
     > Default: `false`
 
-<a name="contributing"></a>
-## Contributing
+<a name="license"></a>
+## License
 
-Have an idea for a useful method? Come across an issue? Submit a pull request!
+[MIT](LICENSE) © [Jason Maurer](http://maur.co)
