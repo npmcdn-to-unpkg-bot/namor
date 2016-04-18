@@ -5,6 +5,6 @@ import namor from '../src/index'
 // exports
 // -----------------------------------------------------------------------------
 
-test('exports', t => {
+test('exports', (t) => {
   t.is(typeof namor.generate, 'function')
 })

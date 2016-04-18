@@ -1,7 +1,4 @@
-<div align="center">
-<img src="https://github.com/jsonmaur/namor/raw/master/assets/namor.png">
-</div>
-<br> <br>
+# Namor
 
 [![Build Status](https://travis-ci.org/jsonmaur/namor.svg?branch=master)](https://travis-ci.org/jsonmaur/namor)
 [![Coverage Status](https://coveralls.io/repos/github/jsonmaur/namor/badge.svg?branch=master)](https://coveralls.io/github/jsonmaur/namor?branch=master)
@@ -73,22 +70,27 @@ primal-attack-kick
 
 ## API
 
-#### .generate (options = {})
+#### .generate (options)
 
-- `options`
-  - `words` `[default: 2, min: 1, max: 4]` - The number of words to include in the generated name. Must be a positive integer no higher than 4.
-  - `numLen` `[default: 4]` - The length of the random trailing number. Must be a positive integer. It can also be set to `0` to exclude a trailing number.
-  - `manly` `[default: false]` - If set to true, manly mode will be enabled which will generate names of a rugged nature.
+- **options**
+  - **words** - The number of words to include in the generated name. Must be a positive integer no higher than 4.
 
-## Testing and Contributing
+    > Type: `integer`  
+    > Default: `2`  
+    > Min: `1`  
+    > Max: `4`
 
-```bash
-git clone https://github.com/jsonmaur/namor.git
-cd namor
-npm install
+  - **numLen** - The length of the random trailing number. Must be a positive integer. It can also be set to `0` to exclude a trailing number.
 
-npm test
-npm run build
-```
+    > Type: `integer`  
+    > Default: `4`
 
-If you want to contribute or come across an issue that you know how to fix, [just do it](https://www.youtube.com/watch?v=ZXsQAXx_ao0). Pull requests are better than issues.
+  - **manly** - If set to true, manly mode will be enabled which will generate names of a rugged nature.
+
+    > Type: `boolean`  
+    > Default: `false`
+
+<a name="contributing"></a>
+## Contributing
+
+Have an idea for a useful method? Come across an issue? Submit a pull request!

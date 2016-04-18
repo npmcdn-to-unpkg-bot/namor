@@ -5,19 +5,19 @@ import * as random from '../src/random'
 // randomFromArray()
 // -----------------------------------------------------------------------------
 
-test('randomFromArray()', t => {
+test('randomFromArray()', (t) => {
   const arr = ['one', 'two', 'three', 'four', 'five']
   const rand = random.randomFromArray(arr)
 
-  t.ok(arr.indexOf(rand) > -1)
+  t.truthy(arr.indexOf(rand) > -1)
 })
 
 // -----------------------------------------------------------------------------
 // randomNumber()
 // -----------------------------------------------------------------------------
 
-test('randomNumber()', t => {
-  function testLength(len) {
+test('randomNumber()', (t) => {
+  const testLength = (len) => {
     for (let i = 0; i < 100; i++) {
       const num = random.randomNumber(len)
       t.is(String(num).length, len)

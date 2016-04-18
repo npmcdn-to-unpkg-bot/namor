@@ -3,7 +3,7 @@
  * @param {array} arr - The array to pick from
  * @returns {any} The value at the random key
  */
-export function randomFromArray(arr) {
+export function randomFromArray (arr) {
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
@@ -12,7 +12,7 @@ export function randomFromArray(arr) {
  * @param {int} size - The number of digits to return
  * @returns {string} The generated random number (in string format)
  */
-export function randomNumber(size) {
+export function randomNumber (size) {
   if (!size || size <= 0) {
     throw new Error('random number size must be above 0!')
   }

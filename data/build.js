@@ -1,6 +1,6 @@
 import fs from 'fs'
-import glob from 'glob'
 import path from 'path'
+import glob from 'glob'
 
 // -----------------------------------------------------------------------------
 // builds a JSON file from all of the .txt files in this dir
@@ -32,7 +32,7 @@ glob(`${dataPath}/**/*.txt`, (err, files) => {
  * @param {array} keyPath - The path to assign in object [a,b] => obj.a.b
  * @param {any} value - The value to assign to the object
  */
-function assign(obj, keyPath, value) {
+function assign (obj, keyPath, value) {
   const lastKeyIndex = keyPath.length - 1
 
   for (let i = 0; i < lastKeyIndex; ++i) {
