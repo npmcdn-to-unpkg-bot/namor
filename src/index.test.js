@@ -1,5 +1,5 @@
 import test from 'ava'
-import namor from '../src/index'
+import namor from './index'
 
 // -----------------------------------------------------------------------------
 // exports

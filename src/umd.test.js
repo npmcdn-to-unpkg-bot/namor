@@ -1,6 +1,6 @@
 /* global Namor */
 import test from 'ava'
-import '../src/umd'
+import './umd'
 
 // -----------------------------------------------------------------------------
 // UMD global

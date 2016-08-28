@@ -1,7 +1,7 @@
 {
   "name": "namor",
   "version": "0.2.1",
-  "description": "a url-friendly name generator",
+  "description": "A url-friendly name generator",
   "author": "Jason Maurer",
   "license": "MIT",
   "homepage": "http://namor.maur.co",
@@ -23,38 +23,41 @@
     "lib/",
     "data.json",
     "namor.min.js",
-    "README.md",
-    "LICENSE"
+    "license",
+    "readme.md"
   ],
   "main": "lib/index.js",
   "scripts": {
-    "lint": "exlint src tests data/build.js",
-    "pretest": "npm run build-data && npm run lint",
-    "test": "rm -rf .nyc_output coverage && nyc ava -a",
-    "posttest": "nyc report -r=lcov",
+    "test:lint": "standard --verbose | snazzy",
+    "test:unit": "rm -rf .nyc_output coverage && nyc ava src/**/*.test.js -a",
+    "test:coverage": "nyc report -r=lcov",
+    "pretest": "npm run build:data",
+    "test": "npm-run-all test:*",
     "coveralls": "cat coverage/lcov.info | coveralls",
-    "build-data": "rm -f data.json && ./node_modules/.bin/babel-node data/build",
-    "build-browser": "rm -f namor.min.js && UMD=true browserify -g uglifyify -t babelify -t envify src/umd -o namor.min.js",
-    "build-node": "rm -rf lib && babel src -d lib --no-comments",
-    "build": "npm run build-data && npm run build-browser && npm run build-node",
-    "watch": "npm run build-node -- -w -s",
+    "build:data": "rm -f data.json && ./node_modules/.bin/babel-node data/build",
+    "build:browser": "rm -f namor.min.js && UMD=true browserify -g uglifyify -t babelify -t envify src/umd -o namor.min.js",
+    "build:node": "rm -rf lib && babel src -d lib --no-comments",
+    "build": "npm-run-all build:*",
+    "watch": "npm run build:node -- -w -s",
     "prepublish": "npm run build"
   },
   "devDependencies": {
-    "ava": "^0.14.0",
-    "babel-cli": "^6.7.5",
-    "babel-preset-es2015": "6.6.0",
+    "ava": "0.16.0",
+    "babel-cli": "6.14.0",
+    "babel-preset-es2015": "6.14.0",
     "babel-preset-stage-0": "6.5.0",
-    "babel-register": "6.7.2",
-    "babelify": "7.2.0",
-    "browserify": "13.0.0",
-    "coveralls": "2.11.9",
-    "envify": "3.4.0",
-    "exlint": "0.1.0",
-    "glob": "7.0.3",
-    "nyc": "^6.4.0",
-    "source-map-support": "0.4.0",
-    "uglifyify": "3.0.1"
+    "babel-register": "6.14.0",
+    "babelify": "7.3.0",
+    "browserify": "13.1.0",
+    "coveralls": "2.11.12",
+    "envify": "3.4.1",
+    "glob": "7.0.6",
+    "npm-run-all": "3.0.0",
+    "nyc": "8.1.0",
+    "snazzy": "4.0.1",
+    "source-map-support": "0.4.2",
+    "standard": "8.0.0",
+    "uglifyify": "3.0.2"
   },
   "babel": {
     "presets": [
@@ -63,14 +66,10 @@
     ]
   },
   "ava": {
-    "require": [
-      "babel-register"
-    ]
+    "require": "babel-register"
   },
   "nyc": {
-    "require": [
-      "babel-register"
-    ],
+    "require": "babel-register",
     "include": [
       "src"
     ]

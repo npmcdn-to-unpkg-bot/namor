@@ -1,5 +1,5 @@
 import test from 'ava'
-import * as generate from '../src/generate'
+import * as generate from './generate'
 
 // -----------------------------------------------------------------------------
 // generate()

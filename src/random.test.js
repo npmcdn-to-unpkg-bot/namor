@@ -1,5 +1,5 @@
 import test from 'ava'
-import * as random from '../src/random'
+import * as random from './random'
 
 // -----------------------------------------------------------------------------
 // randomFromArray()
